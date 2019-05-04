@@ -4,8 +4,10 @@
   "description": "Meeting room server side project.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/server.js"
+    "test": "jest",
+    "start": "nodemon --exec babel-node src/server.js",
+    "build": "babel src --out-dir dist",
+    "serve": "node dist/server.js"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +16,14 @@
     "morgan": "^1.9.1"
   },
   "devDependencies": {
-    "jest": "^24.7.1"
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/node": "^7.2.2",
+    "@babel/polyfill": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "babel-jest": "^24.7.1",
+    "jest": "^24.7.1",
+    "nock": "^10.0.6",
+    "supertest": "^4.0.2"
   }
 }
