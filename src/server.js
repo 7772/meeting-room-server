@@ -6,7 +6,7 @@ var app = express();
 app.use(morgan('combined'));
 
 app.get('/', function(req, res) {
-  res.send('Meeting Room Server.');
+  res.status(200).json();
 });
 
 app.listen(3000, function() {
