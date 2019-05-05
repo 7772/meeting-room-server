@@ -1,12 +1,12 @@
-import nock from 'nock';
-const request = require('supertest');
-// import request from 'supertest';
 import "@babel/polyfill";
+import Environment from '../src/Environment';
+
+const request = require('supertest'); // doesn't support es6
 
 describe('Server API', () => {
-  it('should properly route home', async () => {
+  it('should properly route home on localhost', async () => {
     // Given & When
-    const response = await request('http://localhost:3000').get('/');
+    const response = await request(Environment['LOCALHOST_URL']).get('/');
 
     // Then
     expect(response.status).toBe(200);
