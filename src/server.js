@@ -1,14 +1,17 @@
-var express = require('express');
-var morgan = require('morgan');
+import routes from './routes/index';
+import Environment from './Environment';
 
-var app = express();
+const express = require('express');
+const morgan = require('morgan');
 
+const app = express();
+
+/** Log System */
 app.use(morgan('combined'));
 
-app.get('/', function(req, res) {
-  res.status(200).json();
-});
+/** Home */
+app.get('/', routes.home);
 
-app.listen(3000, function() {
+app.listen(Environment['PORT'], function() {
   console.log('Listening on port 3000..');
 });
