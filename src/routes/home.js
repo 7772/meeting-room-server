@@ -1,8 +1,10 @@
-var express = require('express');
-var router = express.Router();
 
-router.get('/', function(req, res){
-	res.send('home');		
-});
+import express from 'express';
+import HomeController from '../controllers/api/V1/HomeController';
+
+const router = express.Router();
+
+
+router.get('/', HomeController.index);
 
 module.exports = router;
